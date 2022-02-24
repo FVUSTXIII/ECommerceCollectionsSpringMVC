@@ -10,4 +10,5 @@ public interface KartService {
 	public void createKart(User user);
 	public Double getTotalProducts();
 	public void resetTotal();
+	public void emptyKart();
 }

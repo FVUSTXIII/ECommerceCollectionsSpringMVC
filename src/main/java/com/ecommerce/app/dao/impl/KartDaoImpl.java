@@ -16,7 +16,6 @@ import com.ecommerce.app.entity.User;
 @Repository
 public class KartDaoImpl implements KartDao {
 
-	@Autowired
 	static Kart kart = null;
 	Double total = 0.00;
 	@Override
@@ -57,6 +56,12 @@ public class KartDaoImpl implements KartDao {
 	public void resetTotal() {
 		// TODO Auto-generated method stub
 		this.total = 0.00;
+	}
+
+	@Override
+	public void emptyKart() {
+		// TODO Auto-generated method stub
+		kart.getProducts().clear();
 	}
 	
 }

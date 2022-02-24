@@ -16,5 +16,7 @@ public interface KartDao {
 	Double getTotal();
 
 	void resetTotal();
+
+	void emptyKart();
 	
 }

@@ -52,4 +52,10 @@ public class KartServiceImpl implements KartService {
 		kart_dao.resetTotal();
 	}
 
+	@Override
+	public void emptyKart() {
+		// TODO Auto-generated method stub
+		kart_dao.emptyKart();
+	}
+
 }

@@ -1,6 +1,6 @@
 package com.ecommerce.app.dao;
 
-import org.springframework.stereotype.Repository;
+
 
 import com.ecommerce.app.entity.User;
 

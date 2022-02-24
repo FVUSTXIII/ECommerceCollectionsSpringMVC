@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-	<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,7 +9,9 @@
 <title>Cart</title>
 </head>
 <body>
-	<h3>${ fecha }</h3>
+	<c:set var="date" scope="session" value="${fecha}"/>
+         
+	<h3> <c:out value="${ date }"></c:out></h3>
 	<table>
 		<tr>
 			<th>Product Name</th>
@@ -17,11 +19,11 @@
 			<th>Quantity</th>
 		</tr>
 		<c:forEach items="${CartElements}" var ="cart_element">
-		<tr>
-			<td>${ cart_element.key.name }</td>
-			<td>${ cart_element.key.price }</td>
-			<td>${ cart_element.value }</td>
-		</tr>
+			<tr>
+				<td>${ cart_element.key.name }</td>
+				<td>${ cart_element.key.price }</td>
+				<td>${ cart_element.value }</td>
+			</tr>
 		</c:forEach>
 	</table>
 	<hr>
@@ -29,9 +31,7 @@
 		<span><b>Total:</b> ${ total }</span>
 	</div>
 	<div>
-		<form:form>
-		
-		</form:form>
+		<a href="transactionsHistory?date=${ date }" >Proceed With Payment</a>
 	</div>
 </body>
 </html>

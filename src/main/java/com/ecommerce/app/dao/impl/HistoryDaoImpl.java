@@ -11,16 +11,16 @@ import com.ecommerce.app.dao.HistoryDao;
 import com.ecommerce.app.dto.ItemBought;
 import com.ecommerce.app.entity.History;
 import com.ecommerce.app.entity.Kart.KartProduct;
+import com.ecommerce.app.entity.User;
 
 @Repository
 public class HistoryDaoImpl implements HistoryDao{
-
-	@Autowired
-	private History history;
+	
+	static History history = new History();
+	
 	@Override
 	public HashMap<String, List<ItemBought>> getHistory() {
-		// TODO Auto-generated method stub
-		return null;
+		return history.getTransactions();
 	}
 
 	@Override
@@ -32,6 +32,11 @@ public class HistoryDaoImpl implements HistoryDao{
 			items.add(i);
 		});
 		history.getTransactions().put(date, items);
+	}
+
+	@Override
+	public void setUser(User user) {
+		history.setUser(user);	
 	}
 	
 }

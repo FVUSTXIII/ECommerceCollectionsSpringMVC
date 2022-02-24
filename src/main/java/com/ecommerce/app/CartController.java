@@ -33,7 +33,7 @@ public class CartController {
 		product_service.addToKart(product);
 		kart_service.addToKart(product);
 		List products = product_service.getProductList();
-		System.out.println("ID DEL USUARIO: " + user_service.getCurrentUser().getUserId() );
+		System.out.println("ID DEL USUARIO: " + user_service.getCurrentUser().getUserId());
 		model.addAttribute("user", user_service.getCurrentUser());
 		model.addAttribute("cartSize", kart_service.getCartSize());
 		model.addAttribute("products", products);
@@ -45,7 +45,7 @@ public class CartController {
 	public String showCart(Model model, @RequestParam("userId") Integer userID) {
 		model.addAttribute("CartElements", Kart.getProducts());
 		model.addAttribute("total", kart_service.getTotalProducts());
-		model.addAttribute("fecha", LocalDateTime.now());
+		model.addAttribute("fecha", LocalDateTime.now().toString());
 		kart_service.resetTotal();
 		return "cartView";
 	}
