@@ -5,17 +5,24 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
 </head>
-<body>
-	<h1>Products</h1>
-	<form:form action="searchByName" method="post" modelAttribute="product">
-		<form:input type="text" path="name" placeholder="Search Products..." />
-		<input type="submit" value="search"/>
+<body style = "margin: 0; padding:0";>
+ 	<div style="width: 100vw; text-align : center;"> <h1>Products</h1></div>
+	<div style="display: flex; width: 100vw; justify-content: center;">
+		<div style="display: block;">
+			<form:form action="searchByName" method="post" modelAttribute="product">
+			<form:input type="text" path="name" placeholder="Search Products..." />
+			<input type="submit" value="search"/>
+		</div>
 	</form:form>
+	</div>
 	
-	<table>
+	<div style="height: 50vh; display: flex; align-items: center; ">
+	 <div style="display: flex; width: 100vw; justify-content: center; text-align: center;">
+	 	<table class="table">
 		<tr>
 			<th>Product Id</th>
 			<th>Product Name</th>
@@ -47,11 +54,14 @@
 			</form:form>
 		</c:forEach>
 	</table>
+	 </div>
+	</div>
 	<c:choose>
-   		<c:when test="${cartSize > 0}"><div><a href="viewCart?userId=${user.userId}">View Cart</a> (<span>${cartSize}</span>)</div></c:when> 
+   		<c:when test="${cartSize > 0}"><div style="width: 100vw; text-align: center;"><a href="viewCart?userId=${user.userId}">View Cart</a> (<span>${cartSize}</span>)</div></c:when> 
    
-   		<c:otherwise><div><a href="viewCart?userId=${user.userId}">View Cart</a></div></c:otherwise> 
+   		<c:otherwise><div style="width: 100vw; text-align: center;"><a href="viewCart?userId=${user.userId}">View Cart</a></div></c:otherwise> 
 	</c:choose>
 	
 </body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </html>
